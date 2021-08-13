@@ -12,7 +12,6 @@ public class Url {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @NotNull
     private String url;
 
     @NotNull

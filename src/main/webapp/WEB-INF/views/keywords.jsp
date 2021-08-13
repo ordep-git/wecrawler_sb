@@ -4,7 +4,6 @@
 <%@ include file="header.jsp" %>
 <hr>
 <h2>słowa kluczowe</h2>
-
 <table class="table table-striped">
     <tr>
         <th scope="col">keyword</th>
@@ -14,7 +13,7 @@
     <c:forEach items="${keywords}" var="keyword">
         <tr>
             <td>${keyword.keyword}</td>
-            <td>${keyword.emails}</td>
+            <td>${keyword.printEmails()}</td>
             <td>
                 <a href="/keyword/delete/${keyword.id}">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
@@ -23,5 +22,4 @@
         </tr>
     </c:forEach>
 </table>
-
 <%@ include file="footer.jsp" %>

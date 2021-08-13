@@ -1,8 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="header.jsp" %>
 <hr>
-<h2>szukaj w adresie url</h2>
-<p>${emails.size()} email dodano do bazy</p>
+<h2>${emails.size()} email/e dodano do bazy</h2>
 <table class="table table-striped">
     <tr>
         <th scope="col">email</th>

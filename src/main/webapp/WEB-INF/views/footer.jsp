@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <footer>
-    <p>---</p>
+    <hr>
     <p>Java, Spring Boot project - CodersLab, Autor: <a href="mailto:mrowiecm@o2.pl">Michał</a> &copy; 2021.
     </p>
 </footer>

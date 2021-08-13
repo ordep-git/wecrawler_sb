@@ -1,7 +1,10 @@
 package pl.coderslab.webcrawler.entity;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,10 +17,9 @@ public class Email {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @NotNull
+    @NotNull
     private String email;
 
-//    @NotEmpty
     @ManyToMany(mappedBy = "emails", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private List<Url> urls = new ArrayList<>();
 
@@ -43,6 +45,7 @@ public class Email {
 
     public Email() {
     }
+
     public Email(String email) {
         this.email = email;
     }
@@ -84,5 +87,18 @@ public class Email {
 
     public String printUrls() {
         return urls.stream().map(url -> url.toString()).collect(Collectors.joining(" "));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Email)) return false;
+        Email email1 = (Email) o;
+        return Objects.equals(id, email1.id) && Objects.equals(email, email1.email) && Objects.equals(urls, email1.urls) && Objects.equals(keywords, email1.keywords);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, email, urls, keywords);
     }
 }

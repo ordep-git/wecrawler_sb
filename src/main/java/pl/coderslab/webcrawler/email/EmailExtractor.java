@@ -4,7 +4,6 @@ import org.apache.commons.validator.routines.UrlValidator;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import pl.coderslab.webcrawler.entity.Email;
-
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
@@ -25,7 +24,7 @@ public class EmailExtractor {
         }
         Pattern p = Pattern.compile(REGEX_EMAIL);
         Matcher matcher = p.matcher(document.text());
-        Set<Email> emails = new HashSet<>(); //LinkedHashSet
+        Set<Email> emails = new HashSet<>();
         while (matcher.find()) {
             emails.add(new Email(matcher.group(), url));
         }
@@ -39,9 +38,9 @@ public class EmailExtractor {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Pattern p = Pattern.compile(REGEX_EMAIL);
+        Pattern p = Pattern.compile(REGEX_EMAIL, Pattern.CASE_INSENSITIVE);
         Matcher matcher = p.matcher(document.text());
-        Set<String> emails = new HashSet<>(); //LinkedHashSet
+        Set<String> emails = new HashSet<>();
         while (matcher.find()) {
             emails.add(matcher.group());
         }

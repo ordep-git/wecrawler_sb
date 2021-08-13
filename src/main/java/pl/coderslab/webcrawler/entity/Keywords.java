@@ -1,9 +1,9 @@
 package pl.coderslab.webcrawler.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "keywords")
@@ -54,5 +54,9 @@ public class Keywords {
 
     public void setEmails(List<Email> emails) {
         this.emails = emails;
+    }
+
+    public String printEmails() {
+        return emails.stream().map(em -> em.toString()).collect(Collectors.joining(" "));
     }
 }
